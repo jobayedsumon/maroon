@@ -232,7 +232,7 @@ class ProductsController extends Controller
 
 
         
-        dd($allproducts);
+//        dd($allproducts);
 
         
         return view('frontend.pages.products')->with(compact('sizes','colors','category','allproducts'));
