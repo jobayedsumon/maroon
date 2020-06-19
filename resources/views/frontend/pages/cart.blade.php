@@ -214,7 +214,11 @@
 	                    _token: $('meta[name="csrf-token"]').attr('content')
 	                },
 	                success:function(data){
-						var percentage = data;
+	                	if (isNaN(data)) {
+	                		var percentage = 0;
+						} else {
+							var percentage = data;
+						}
 						var sub_total = document.getElementById('sub_total').innerHTML;
 						var shipping_method = document.getElementById('shipping_method').value;
 						

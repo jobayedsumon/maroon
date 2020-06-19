@@ -32,7 +32,7 @@
                                 <th>Payment method</th>
                                 <th>Order Status</th>
                                 <th>Order Time</th>
-                                <th>Action</th>
+{{--                                <th>Action</th>--}}
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +45,7 @@
                                 <td>{!! $order->payment_method !!}</td>
                                 <td>{!! $order->order_status !!}</td>
                                 <td>{!! $order->updated_at !!}</td>
-                                <td><a href="order-details/{{ $order->id }}"><label for="" class="badge badge-info">GO</label></a></td>
+{{--                                <td><a href="order-details/{{ $order->id }}"><label for="" class="badge badge-info">GO</label></a></td>--}}
                             </tr>
                             @endforeach
                         </tbody>

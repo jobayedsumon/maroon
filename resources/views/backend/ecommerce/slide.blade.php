@@ -29,7 +29,7 @@
                                     ADD NEW SLIDE
                                 </h4>
                                 <hr>
-                                <form action="/admin/slide" method="POST">
+                                <form action="/admin/slide" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label for="" class="col-sm-2 col-form-label">Slide Image Name</label>
@@ -38,9 +38,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="" class="col-sm-2 col-form-label">Slide Image URL</label>
+                                        <label for="" class="col-sm-2 col-form-label">Slide Image</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" value="" id="image_url" name="image_url">
+                                            <input class="form-control" type="file" value="" id="image_url" name="slide_image" required>
                                         </div>
                                     </div>
                                     <div class="form-group text-center">
@@ -62,7 +62,7 @@
                                        <tr>
                                            <th>SL</th>
                                            <th>Image Name</th>
-                                           <th>Image URL</th>
+                                           <th>Image</th>
                                            <th>Action</th>
                                        </tr>
                                    </thead>
@@ -71,7 +71,7 @@
                                        <tr>
                                            <td>{{ $slide->id }}</td>
                                            <td>{{ $slide->image_name }}</td>
-                                           <td>{{ $slide->image_url }}</td>
+                                           <td><img width="100px" src="{{ $slide->image_url }}" alt=""></td>
                                            <td> <badge class="badge badge-danger">Delete</badge></td>
                                        </tr>
                                        @endforeach
@@ -84,28 +84,28 @@
 
             </div> <!-- end col -->
             
-            <div class="col-lg-4">
-                <div class="card" height="200px !important">
-                    <div class="card-body">
-                        <div class="row">
-                            @foreach($images as $image)
-                                <!-- Simple card -->
-                                <div class="col-md-6 col-lg-6 col-xl-6" style="margin-bottom:5px !important">
-                                    <div class="card">
-                                        <img class="card-img-top" width="300px !important" height="200px !important" src="{{ $image->image_url }}" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-title font-12 mt-0" id="copy_image_url_{{ $image->id }}">{{ $image->image_name }}</p>
-                                            <span>
-                                                <button for="" class="badge badge-info" onclick="copyToClipboard('#copy_image_url_{{ $image->id }}')"> <i class="fa fa-copy"></i> copy</button>        
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end col -->
+{{--            <div class="col-lg-4">--}}
+{{--                <div class="card" height="200px !important">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <div class="row">--}}
+{{--                            @foreach($images as $image)--}}
+{{--                                <!-- Simple card -->--}}
+{{--                                <div class="col-md-6 col-lg-6 col-xl-6" style="margin-bottom:5px !important">--}}
+{{--                                    <div class="card">--}}
+{{--                                        <img class="card-img-top" width="300px !important" height="200px !important" src="{{ $image->image_url }}" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <p class="card-title font-12 mt-0" id="copy_image_url_{{ $image->id }}">{{ $image->image_name }}</p>--}}
+{{--                                            <span>--}}
+{{--                                                <button for="" class="badge badge-info" onclick="copyToClipboard('#copy_image_url_{{ $image->id }}')"> <i class="fa fa-copy"></i> copy</button>        --}}
+{{--                                            </span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div> <!-- end col -->--}}
             
         </div> <!-- end row -->
         

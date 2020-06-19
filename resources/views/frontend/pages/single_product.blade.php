@@ -79,6 +79,7 @@
 						<ul class="thumbnails-wrapper">
 							@foreach($product_variations as $thumbnail)
 								<li id="thumbnail_{!! $thumbnail->id !!}" class="thumbnail activate-thumbnail">
+									<input type="hidden" id="thumbnail_id" value="{{ $thumbnail->id  }}">
 									<a href="#" ><img src="{!! $thumbnail->image_url !!}" alt="" class="img-responsive"></a>
 								</li>
 							@endforeach
@@ -119,9 +120,9 @@
 									@php 
 									$i =1;
 									@endphp
-									@foreach($product_variations as $color)
+									@foreach($product_variations as $product_variation)
 									
-										<li class="x-small 	choose-color" data-color = "{!! $color->id."_".$i !!}" onclick="choose_color(this);" id="{!! $color->colors->color_name.$color->id  !!} ">{!! $color->colors->color_name !!}</li>
+										<li class="x-small 	choose-color" data-color = "{!! $product_variation->colors->id."_".$i !!}" onclick="choose_color(this);" id="{!! $product_variation->colors->color_name.$product_variation->colors->id  !!} ">{!! $product_variation->colors->color_name !!}</li>
 										@php 
 											$i++;
 										@endphp
@@ -135,8 +136,8 @@
 							<div class="item-size">
 								<h4>Choose a size</h4>
 								<ul id="choose_size_ul">
-									@foreach($product_variations as $size)
-										<li class="x-small 	choose-size" data-size = "{!! $size->id !!}"  data-sizeName ="{!! $size->sizes->size_name  !!}" onclick="choose_size(this);ajaxCall()" id="{!! $size->sizes->size_name.$size->id  !!}">{!! $size->sizes->size_name  !!}</li>
+									@foreach($product_variations as $product_variation)
+										<li class="x-small 	choose-size" data-size = "{!! $product_variation->sizes->id !!}"  data-sizeName ="{!! $product_variation->sizes->size_name  !!}" onclick="choose_size(this);ajaxCall()" id="{!! $product_variation->sizes->size_name.$product_variation->sizes->id  !!}">{!! $product_variation->sizes->size_name  !!}</li>
 									@endforeach
 									<li class="x-small active"  onclick="" ><strong>Size Chart</strong></li>
 								</ul>
@@ -557,7 +558,8 @@
 								for (i = 0; i < thumbnail.length; i++) {
 									thumbnail[i].classList.remove('active');
 								}
-		                		var d = document.getElementById("thumbnail_2");
+								var id = $('#thumbnail_id').val();
+		                		var d = document.getElementById("thumbnail_"+id);
 								d.className += " active";
 								/*
 								|

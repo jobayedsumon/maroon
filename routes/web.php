@@ -12,7 +12,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::get('/admin', 'HomeController@admindashboard')->name('admindashboard');	// Admin Dashboard Controller
 	Route::resource('admin/category', 'CategoryController');						// Category Management Routes
@@ -29,26 +29,53 @@ Route::get('admin/orders-history', function () {
 Route::get('admin/order-details/{id}', 'OrderController@show');
 Route::resource('admin/orders','OrderController');  							// orders Show
 Route::get('admin/customer-list', 'CustomerController@index');
-Route::get('admin/user-list', 'CustomerController@index');
+Route::get('admin/user-list', 'CustomerController@user');
 Route::get('admin/coupon', 'CouponController@index');
 Route::post('admin/coupon', 'CouponController@store');
 Route::post('admin/coupon/{id}', 'CouponController@destroy');
 
 
 
-});
+    /*
+    |
+    |--------------------------------------------------------------------------
+    | Web Routes - Website's pages routes
+    |--------------------------------------------------------------------------
+    |
+    */
 
-/*
-|
-|--------------------------------------------------------------------------
-| Web Routes - CUSTOMER'S Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+    Route::get('admin/about-us', 'PageController@about_us');
+    Route::patch('admin/about-us', 'PageController@store_about_us');
+    Route::get('admin/store-location', 'PageController@store_location');
+    Route::patch('admin/store-location', 'PageController@store_store_location');
+    Route::get('admin/disclaimer', 'PageController@disclaimer');
+    Route::patch('admin/disclaimer', 'PageController@store_disclaimer');
+    Route::get('admin/privacy-policy', 'PageController@privacy_policy');
+    Route::patch('admin/privacy-policy', 'PageController@store_privacy_policy');
+    Route::get('admin/payment-policy', 'PageController@payment_policy');
+    Route::patch('admin/payment-policy', 'PageController@store_payment_policy');
+    Route::get('admin/return-policy', 'PageController@return_policy');
+    Route::patch('admin/return-policy', 'PageController@store_return_policy');
+    Route::get('admin/refund-policy', 'PageController@refund_policy');
+    Route::patch('admin/refund-policy', 'PageController@store_refund_policy');
+    Route::get('admin/damaged-lost-policy', 'PageController@damaged_lost_policy');
+    Route::patch('admin/damaged-lost-policy', 'PageController@store_damaged_lost_policy');
+
+    });
+
+
+
+    /*
+    |
+    |--------------------------------------------------------------------------
+    | Web Routes - CUSTOMER'S Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can register web routes for your application. These
+    | routes are loaded by the RouteServiceProvider within a group which
+    | contains the "web" middleware group. Now create something great!
+    |
+    */
 
 Route::resource('newsletter', 'NewsletterController',['except' => 'show']); 
 

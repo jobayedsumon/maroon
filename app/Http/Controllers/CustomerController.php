@@ -15,7 +15,14 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $customers = User::all();
+        $customers = User::where('user_level', '!=', 1)->get();
+        return view('backend.ecommerce.customer_list', compact('customers'));
+    }
+
+    public function user()
+    {
+        //
+        $customers = User::where('user_level', 1)->get();
         return view('backend.ecommerce.customer_list', compact('customers'));
     }
 

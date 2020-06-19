@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Page extends Model
 {
-    protected $table = 'online_payment_transaction_data';
+    //
     protected $guarded = [];
 }

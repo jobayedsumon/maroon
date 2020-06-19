@@ -50,13 +50,13 @@ class DatabaseSeeder extends Seeder
             'size_name' => 'XXL',
         ]);
 
-//        $this->call([
-//            CategoriesTableSeeder::class,
-//            Invoice::class,
-//            SubCategoriesTableSeeder::class,
-//            SubSlaveCategoriesTableSeeder::class,
-//            UsersTableSeeder::class,
-//        ]);
+        $this->call([
+            CategoriesTableSeeder::class,
+            Invoice::class,
+            SubCategoriesTableSeeder::class,
+            SubSlaveCategoriesTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
 
 
 

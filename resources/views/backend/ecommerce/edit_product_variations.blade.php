@@ -12,7 +12,7 @@
 
                     <h4 class="mt-0 header-title">Fill Variation Informations</h4>
                     <hr>
-                    <form action="/admin/productvariation" method="POST">
+                    <form action="/admin/productvariation" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="products_id" value="{{ $product_id }}"/>
                         @for($i=0;$i<$num_of_product_variation;$i++)
@@ -47,8 +47,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="image_url">Image URL</label>
-                                    <input  type="text" min="0" class="form-control" id="image_url" name="image_url" required>
+                                    <label for="image_url">Image</label>
+                                    <input  type="file" min="0" class="form-control" id="image_url" name="variation_image" required>
                                 </div>
                             </div>
                             

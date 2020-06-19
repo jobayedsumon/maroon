@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Order;
+use App\Transaction;
+use App\User;
+use Carbon\Carbon;
 use Session;
 use Illuminate\Http\Request;
 use App\Slide;
@@ -73,7 +77,20 @@ class HomeController extends Controller
     
     
     public function admindashboard(){
-        return view('backend.index');
+
+        $total_orders = Order::all()->count();
+        $total_income = Order::all()->sum('order_total');
+        $new_orders = Order::where('created_at', Carbon::today())->count();
+        $total_customers = User::all()->count();
+        $new_customers = User::where('created_at', Carbon::today())->count();
+        $total_products = Products::all()->count();
+        $shipped_orders = Order::where('order_status', 'Shipped')->count();
+        $cancelled_orders = Order::where('order_status', 'Cancelled')->count();
+        $latest_transaction = Transaction::latest()->take(5)->get();
+
+
+        return view('backend.index', compact('total_orders', 'total_income', 'new_orders', 'total_customers',
+        'new_customers', 'total_products', 'shipped_orders', 'cancelled_orders', 'latest_transaction'));
     }
 
 }

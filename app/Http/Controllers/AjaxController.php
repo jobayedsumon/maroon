@@ -58,7 +58,9 @@ class AjaxController extends Controller
 		$products_id = $request->products_id;
 		$colors_id = $request->colors_id;
 		$sizes_id = $request->sizes_id;
+
 		$stock = ProductVariation::where('products_id',$products_id)->where('colors_id',$colors_id)->where('sizes_id',$sizes_id)->get();
+
 		return $stock;
     }
     /*

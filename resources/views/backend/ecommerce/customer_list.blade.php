@@ -38,8 +38,8 @@
                                         <td>{!! $customer->name !!}</td>
                                         <td>{!! $customer->email !!}</td>
                                         <td>{!! $customer->phone_number !!}</td>
-                                        <td>{!! $customer->information->billing_address !!}</td>
-                                        <td>{!! $customer->information->shipping_address !!}</td>
+                                        <td>{!! $customer->information ? $customer->information->billing_address : '' !!}</td>
+                                        <td>{!! $customer->information ? $customer->information->shipping_address : '' !!}</td>
 {{--                                        <td><a href="order-details/{{ $customer->id }}"><label for="" class="badge badge-info">GO</label></a></td>--}}
                                     </tr>
                                 @endforeach

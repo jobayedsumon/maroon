@@ -120,7 +120,9 @@ class Checkout extends Controller
         $new_order->invoices_id         = $invoices_id ;
         $new_order->sub_total           = $sub_total;
         $new_order->shipping            = $shipping;
-        $new_order->discount            = $discount;
+        if ($discount != null) {
+            $new_order->discount            = $discount;
+        }
         $new_order->order_total         = $order_total;
         $new_order->billing_address     = $billing_address;
         $new_order->shipping_address    = $shipping_address;
@@ -239,10 +241,10 @@ class Checkout extends Controller
                 $data = array('name'=>$name,"invoice"=>$invoices_id,"invoice_encrypted"=>$hashed_invoices_id);
 
                 
-                Mail::send(['text'=>'purchasemail'], $data, function($message) use($mail,$name) {
-                    $message->to($mail, $name)->subject('Thank you for Purchasing from MAROON');
-                    $message->from('maroon.fashion.bd@gmail.com','MAROON-House of Attire');
-                });
+//                Mail::send(['text'=>'purchasemail'], $data, function($message) use($mail,$name) {
+//                    $message->to($mail, $name)->subject('Thank you for Purchasing from MAROON');
+//                    $message->from('maroon.fashion.bd@gmail.com','MAROON-House of Attire');
+//                });
                                 
                 /*
                 |

@@ -11,8 +11,10 @@ use App\Media;
 use App\Cart;
 use App\Size;
 use App\Color;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Carbon;
+use Illuminate\Support\Facades\Storage;
 use Session;
 
 class ProductsController extends Controller
@@ -61,6 +63,10 @@ class ProductsController extends Controller
         $this->validate($request, [
             'sku' => 'required|distinct',
         ]);
+
+        $file = $request->file('thumbnail_image');
+
+        Storage::disk('public')->put($file->getClientOriginalName(), file_get_contents($file));
         
         
         $sku                        = $request->sku;
@@ -70,13 +76,13 @@ class ProductsController extends Controller
         $product_title              = $request->product_title;
         $product_description        = $request->product_description;
         $price                      = $request->price;
-        $image_url                  = $request->thumbnail_image_url;
+        $image_url                  = '/storage/'.$file->getClientOriginalName();
         $slug                       = $request->slug;
         
         
 
         
-        Products::create([
+        $product = Products::create([
             'sku'                       =>  $sku,
             'categories_id'             =>  $category_id,
             'sub_categories_id'         =>  $sub_category_id       ,
@@ -90,7 +96,7 @@ class ProductsController extends Controller
         ]);
         
         
-        return $this->index()->with('success','Product Added Successfully');
+        return redirect('/admin/product/'.$product->id.'/edit');
     }
 
     /**
@@ -186,9 +192,10 @@ class ProductsController extends Controller
         
         $minamount = $request->minamount;
         $maxamount = $request->maxamount;
-        
-        $size = $request->size;
-        $color = $request->color;
+
+        $color_id = Color::where('color_name', $request->color)->value('id');
+        $size_id = Size::where('size_name', $request->size)->value('id');
+
         
         $perPage = $request->perPage;
         
@@ -224,14 +231,26 @@ class ProductsController extends Controller
         if($minamount != null && $maxamount != null) {
             $query->whereBetween('price', [$minamount, $maxamount]);
         }
+
+        if($request->color != null) {
+            $product_ids = ProductVariation::where('colors_id', $color_id)->pluck('products_id');
+            $query->whereIn('id', $product_ids);
+        }
+
+        if($request->size != null) {
+            $product_ids = ProductVariation::where('sizes_id', $size_id)->pluck('products_id');
+            $query->whereIn('id', $product_ids);
+        }
+
+
         
         $allproducts = $query->paginate($perPage);
 
 //        $allproducts = $query->get();
-
-
-
-        
+//
+//
+//
+//
 //        dd($allproducts);
 
         

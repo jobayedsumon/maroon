@@ -66,7 +66,7 @@
                         </h4>
                         <hr>
 
-                        <form action="/admin/product" method="POST">
+                        <form action="/admin/product" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label for="sku" class="col-sm-2 col-form-label">SKU</label>
@@ -126,43 +126,45 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label for="" class="col-sm-2 col-form-label">Thumbnail Image URL</label>
+                                <label for="" class="col-sm-2 col-form-label">Thumbnail Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="" id="thumbnail_image_url" name="thumbnail_image_url">
+                                    <input class="form-control" type="file" value="" id="thumbnail_image_url" name="thumbnail_image" required>
                                 </div>
                             </div>
+
                             
                             <div class="form-group text-center">
-                                <button class="btn btn-success" type="submit">ADD</button>
+                                <button class="btn btn-success" type="submit">NEXT</button>
                             </div>
                         </form>
 
                     </div>
                 </div>
             </div> <!-- end col -->
-            
-            <div class="col-lg-4">
-                <div class="card" height="200px !important">
-                    <div class="card-body">
-                        <div class="row">
-                            @foreach($images as $image)
-                                <!-- Simple card -->
-                                <div class="col-md-6 col-lg-6 col-xl-6" style="margin-bottom:5px !important">
-                                    <div class="card">
-                                        <img class="card-img-top" width="300px !important" height="200px !important" src="{{ $image->image_url }}" alt="Card image cap">
-                                        <div class="card-body">
-                                            <p class="card-title font-12 mt-0" id="copy_image_url_{{ $image->id }}">{{ $image->image_name }}</p>
-                                            <span>
-                                                <button for="" class="badge badge-info" onclick="copyToClipboard('#copy_image_url_{{ $image->id }}')"> <i class="fa fa-copy"></i> copy</button>        
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end col -->
+
+
+{{--            <div class="col-lg-4">--}}
+{{--                <div class="card" height="200px !important">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <div class="row">--}}
+{{--                            @foreach($images as $image)--}}
+{{--                                <!-- Simple card -->--}}
+{{--                                <div class="col-md-6 col-lg-6 col-xl-6" style="margin-bottom:5px !important">--}}
+{{--                                    <div class="card">--}}
+{{--                                        <img class="card-img-top" width="300px !important" height="200px !important" src="{{ $image->image_url }}" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <p class="card-title font-12 mt-0" id="copy_image_url_{{ $image->id }}">{{ $image->image_name }}</p>--}}
+{{--                                            <span>--}}
+{{--                                                <button for="" class="badge badge-info" onclick="copyToClipboard('#copy_image_url_{{ $image->id }}')"> <i class="fa fa-copy"></i> copy</button>        --}}
+{{--                                            </span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div> <!-- end col -->--}}
             
         </div> <!-- end row -->
     </div><!-- container -->
@@ -194,6 +196,37 @@
         $temp.remove();
       
     }
+
+    $(document).ready(function () {
+        if($("#elm1").length > 0){
+            tinymce.init({
+                selector: "textarea#elm1",
+                theme: "modern",
+                height:300,
+                plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                    "save table contextmenu directionality emoticons template paste textcolor"
+                ],
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                style_formats: [
+                    {title: 'Bold text', inline: 'b'},
+                    {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                    {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                    {title: 'Example 1', inline: 'span', classes: 'example1'},
+                    {title: 'Example 2', inline: 'span', classes: 'example2'},
+                    {title: 'Table styles'},
+                    {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                ]
+            });
+        }
+    });
+
+    $('#variationButton').click(function () {
+        $.ajax('')
+    });
+
+
 </script>
 
 @endsection

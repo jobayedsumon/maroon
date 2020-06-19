@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'jobayed@vmsl.com.bd',
             'email_verified_at' => '2020-01-01',
             'phone_number' => '01677242853',
-            'password' => '11111111',
+            'password' => bcrypt('111111'),
             'user_level' => '1',
             //'name' => '',
             //'name' => '',

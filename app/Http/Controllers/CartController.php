@@ -66,6 +66,8 @@ class CartController extends Controller
         $price              = $request->sub_total;
         $sub_total          = $request->sub_total*$quantity;
 
+
+
         
         /*
         |--- Retrieve Product Variation Information

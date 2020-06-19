@@ -8,6 +8,7 @@ use App\Category;
 use App\SubCategory;
 use App\SubSlaveCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -47,16 +48,18 @@ class SlideController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image_url'     => 'distinct',
+            'slide_image'     => 'distinct',
         ]);
-        
-        $image_url = $request->image_url;
+
+        $slide_image = $request->slide_image;
         $image_name = $request->image_name;
+
+        Storage::disk('public')->put($slide_image->getClientOriginalName(), file_get_contents($slide_image));
         
         Slide::create([
             
             'image_name' => $image_name,
-            'image_url' => $image_url
+            'image_url' => '/storage/'.$slide_image->getClientOriginalName()
         
         ]);
         

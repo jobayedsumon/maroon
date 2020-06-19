@@ -8,6 +8,7 @@ use App\Color;
 use App\Size;
 use Illuminate\Http\Request;
 use Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ProductVariationController extends Controller
 {
@@ -63,7 +64,9 @@ class ProductVariationController extends Controller
         $product_color = $request->product_color;
         $product_size = $request->product_size;
         $product_quantity = $request->product_quantity;
-        $image_url = $request->image_url;
+        $variation_image = $request->file('variation_image');
+
+        Storage::disk('public')->put($variation_image->getClientOriginalName(), file_get_contents($variation_image));
         
         
         for($i=0;$i < count($product_color);$i++ ){
@@ -73,7 +76,7 @@ class ProductVariationController extends Controller
                 'colors_id'                     =>      $product_color[$i],
                 'sizes_id'                      =>      $product_size[$i],
                 'quantity'                      =>      $product_quantity[$i],
-                'image_url'                     =>      $image_url,
+                'image_url'                     =>      '/storage/'.$variation_image->getClientOriginalName(),
                // 'created_at '                   =>      Carbon::now()
             ]);
         }
