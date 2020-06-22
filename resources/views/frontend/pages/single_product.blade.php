@@ -139,7 +139,7 @@
 									@foreach($product_variations as $product_variation)
 										<li class="x-small 	choose-size" data-size = "{!! $product_variation->sizes->id !!}"  data-sizeName ="{!! $product_variation->sizes->size_name  !!}" onclick="choose_size(this);ajaxCall()" id="{!! $product_variation->sizes->size_name.$product_variation->sizes->id  !!}">{!! $product_variation->sizes->size_name  !!}</li>
 									@endforeach
-									<li class="x-small active"  onclick="" ><strong>Size Chart</strong></li>
+									<li class="x-small"><a href="/size-chart" target="_blank" style="color: #0b0b0b"><strong>Size Chart</strong></a></li>
 								</ul>
 							</div>
 						</div>

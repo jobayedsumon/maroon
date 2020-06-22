@@ -267,50 +267,7 @@
             <!--/ featured box -->
             
 			<!-- latest blogs -->
-            <div class="latest-blogs margin-bottom-100px">
-                <h2 class="trendify-heading middle-align margin-bottom-50px"><span class="lg">Blog Updates</span><span class="sm">Latest from the blog</span> </h2>
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="single-news fadeInLeft wow" data-wow-delay="0.3s">
-							<div class="news-img">
-								<img src="/frontend/img/blog4.jpg" alt="" class="img-responsive" />
-							</div>
-							<div class="news-content">
-								<h4>Awesome Suits for Men</h4>
-								<p class="meta">April 14, 2015 | Jonah Doe | in <a href="">Clothes</a></p>
-								<p class="excerpt">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-								<a href="single.html" class="pull-right"><span class="blog-icon arrow_right"></span></a>
-							</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="single-news fadeInLeft wow" data-wow-delay="0.6s">
-							<div class="news-img">
-								<img src="/frontend/img/blog5.jpg" alt="" class="img-responsive" />
-							</div>
-							<div class="news-content">
-								<h4>we are a fashion company</h4>
-								<p class="meta">April 14, 2015 | Jonah Doe | in <a href="">fashion</a></p>
-								<p class="excerpt">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-								<a href="single.html" class="pull-right"><span class="blog-icon arrow_right"></span></a>
-							</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="single-news fadeInLeft wow" data-wow-delay="0.9s">
-							<div class="news-img">
-								<img src="/frontend/img/blog1.jpg" alt="" class="img-responsive" />
-							</div>
-							<div class="news-content">
-								<h4>Awesome Suites for Men</h4>
-								<p class="meta">April 14, 2015 | Jonah Doe | in <a href="">Clothes</a></p>
-								<p class="excerpt">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-								<a href="single.html" class="pull-right"><span class="blog-icon arrow_right"></span></a>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <!-- /latest blogs -->
 		</div>

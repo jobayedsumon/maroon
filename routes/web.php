@@ -33,6 +33,13 @@ Route::get('admin/user-list', 'CustomerController@user');
 Route::get('admin/coupon', 'CouponController@index');
 Route::post('admin/coupon', 'CouponController@store');
 Route::post('admin/coupon/{id}', 'CouponController@destroy');
+Route::get('admin/color', 'ColorController@index');
+Route::post('admin/color', 'ColorController@store');
+Route::post('admin/color/{id}', 'ColorController@destroy');
+Route::get('admin/size', 'SizeController@index');
+Route::post('admin/size', 'SizeController@store');
+Route::post('admin/size/{id}', 'SizeController@destroy');
+Route::post('admin/size-chart', 'SizeController@sizechart');
 
 
 
@@ -130,12 +137,20 @@ Route::post('/coupon',	'AjaxController@coupon')->name('coupon'); // implement co
 |
 */
 
-Route::get('/store',	'SettingController@store_location')->name('store');
-Route::get('/about-us',	'SettingController@about_us')->name('about_us');
-Route::get('/conditions-of-use',	'SettingController@conditions_of_use')->name('conditions_of_use');
-Route::get('/shipping-returns',	'SettingController@shipping_returns')->name('shipping_returns');
-Route::get('/privacy-notice',	'SettingController@privacy_notice')->name('privacy_notice');
-	
+Route::get('/size-chart', function () {
+    $sizeCharts = \App\SizeChart::all();
+    return view('frontend.pages.size-chart', compact('sizeCharts'));
+});
+
+Route::get('/store-location',	'SettingController@store_location');
+Route::get('/about-us',	'SettingController@about_us');
+Route::get('/disclaimer',	'SettingController@disclaimer');
+Route::get('/damaged-lost-policy',	'SettingController@damaged_lost_policy');
+Route::get('/return-policy',	'SettingController@return_policy');
+Route::get('/privacy-policy',	'SettingController@privacy_policy');
+Route::get('/refund-policy',	'SettingController@refund_policy');
+Route::get('/payment-policy',	'SettingController@payment_policy');
+
 
 /*
 |----------------------------------------------------------------------------------------

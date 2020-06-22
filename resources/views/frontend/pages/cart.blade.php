@@ -173,6 +173,7 @@
 			@endif
 		</div>
 	</div>
+
 	
 	<!-- / Shopping Cart -->
     
@@ -184,6 +185,7 @@
 
 @section('footer')
 	<script type="text/javascript">
+
 	
 		function checkoutData(){
 			var sub_total = document.getElementById('sub_total').innerHTML;

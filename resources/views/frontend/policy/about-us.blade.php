@@ -44,7 +44,7 @@
                 <div class="card">
                     <div class="card-body">
                         
-                        <h3>ABOUT US</h3>
+                        {!! $page->about_us !!}
                           
                     </div>
                 </div>

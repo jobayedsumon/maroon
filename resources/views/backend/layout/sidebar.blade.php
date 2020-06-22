@@ -124,6 +124,27 @@
                                                 </span>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/admin/color
+" class="waves-effect">
+                                                <i class="mdi mdi-tag-multiple"></i>
+                                                <span> Colors
+                                                    <span class="pull-right">
+                                                        <i class="mdi mdi-chevron-right"></i>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/admin/size" class="waves-effect">
+                                                <i class="mdi mdi-tag-multiple"></i>
+                                                <span> Sizes
+                                                    <span class="pull-right">
+                                                        <i class="mdi mdi-chevron-right"></i>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                             <!--Reporting Panel-->

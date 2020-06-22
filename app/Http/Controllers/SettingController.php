@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use App\Setting;
 use Illuminate\Http\Request;
 
@@ -93,23 +94,42 @@ class SettingController extends Controller
     |--- Shipping Policy
     |    
     */
+
+
     public function store_location(){
-        return view('frontend.policy.store');
+        $page = Page::latest()->first();
+        return view('frontend.policy.store-location', compact('page'));
     }
     
     public function about_us(){
-        return view('frontend.policy.about');
+        $page = Page::latest()->first();
+        return view('frontend.policy.about-us', compact('page'));
     }
     
-    public function conditions_of_use(){
-        return view('frontend.policy.tos');
+    public function disclaimer(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.disclaimer', compact('page'));
     }
     
-    public function privacy_notice(){
-        return view('frontend.policy.privacy');
+    public function privacy_policy(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.privacy-policy', compact('page'));
     }
-    public function shipping_returns(){
-        return view('frontend.policy.shipping');
+    public function return_policy(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.return-policy', compact('page'));
+    }
+    public function refund_policy(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.refund-policy', compact('page'));
+    }
+    public function payment_policy(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.payment-policy', compact('page'));
+    }
+    public function damaged_lost_policy(){
+        $page = Page::latest()->first();
+        return view('frontend.policy.damaged-lost-policy', compact('page'));
     }
     
 }

@@ -37,11 +37,14 @@
 					</div>					
 					<div class="col-md-3">
 						<div class="single-widget">
-							<h2><a href="/shipping-returns ">shipping & exchange</a></h2>
-							<h2><a href="/privacy-notice">privacy policy</a></h2>
-							<h2><a href="/conditions-of-use">terms & conditions</a></h2>
-							<h2><a href="/about-us">about us</a></h2>
-							<h2><a href="/store">store location</a></h2>
+							<h2><a href="/disclaimer">Disclaimer</a></h2>
+							<h2><a href="/privacy-policy">Privacy Policy</a></h2>
+							<h2><a href="/payment-policy">Payment Policy</a></h2>
+							<h2><a href="/refund-policy">Refund Policy</a></h2>
+							<h2><a href="/return-policy">Return Policy</a></h2>
+							<h2><a href="/damaged-lost-policy">Damaged/Lost Policy</a></h2>
+							<h2><a href="/about-us">About Us</a></h2>
+							<h2><a href="/store-location">Store Location</a></h2>
 						</div>
 					</div>					
 					<div class="col-md-3">

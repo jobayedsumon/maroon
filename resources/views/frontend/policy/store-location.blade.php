@@ -48,25 +48,13 @@
 						</div>
 						
 						<div class="cat-info text-left">
-						    <h2 class="heading">Maroon - The House of Attire, Banani</h2>
-							<h3>Road No. 11,Banani,Dhaka 1212</h3>
+
+							{!! $page->store_location !!}
 							
 						</div>
 					</div>
 				</div>
-				
-				<div class="item">
-					<div class="single-categories bottom-margin">
-						<div class="cat-img pull-right">
-							<!--<img src="img/bag.png" alt="Testimonial Client One" class="img-responsive"> -->
-						</div>
-						
-						<div class="cat-info text-left">
-						    <h2 class="heading">Maroon - The House of Attire, UTTARA</h2>
-							<h3>25 Rabindra Sarani,Uttara,Dhaka 1230</h3>
-						</div>
-					</div>
-				</div>
+
 				
 			
 			</div>
